@@ -31,7 +31,7 @@ if ( sizeof($request_array['events']) > 0 ) {
 			       		$LINEDatas['token']= $ACCESS_TOKEN;
 			       	$profile_userid =getLINEProfile($LINEDatas)['message'];
 			      // $reply_message =	$profile_userid;
-			       foreach ($profile_userid[ as $data_userid) {
+			       foreach ($profile_userid as $data_userid) {
 				        $reply_message = 'สวัสดีคุณ '.$data_userid['displayName'];
 			      		 }
 			       
