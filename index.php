@@ -17,10 +17,10 @@ if ( sizeof($request_array['events']) > 0 ) {
 
     foreach ($request_array['events'] as $event) {
 
-        $reply_message = 'hello';
+        $reply_message = '';
         $reply_token = $event['replyToken'];
 //////////////////
-        
+        $reply_message = '\n'.json_encode($request_array);
         $data = [
             'replyToken' => $reply_token,
             'messages' => [['type' => 'text', 'text' => $reply_message]]
