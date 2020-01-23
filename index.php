@@ -26,7 +26,8 @@ if ( sizeof($request_array['events']) > 0 ) {
                      $reply_message = 'ได้รับข้อความ ('.$text.') แล้ว'; 
                        if($text=='test'){
                          	 ////////////
-			    $reply_message = 'ทำการทดสอบ';    
+			       $userId = $event['message']['userId'];
+			    $reply_message = $userId;
                            //////////////
                        }
                    }
