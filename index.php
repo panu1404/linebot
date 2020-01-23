@@ -24,7 +24,35 @@ if ( sizeof($request_array['events']) > 0 ) {
                    $text = $event['message']['text'];
                    if($text=='debug'){ $reply_message = json_encode($request_array);}else{
                      $reply_message = 'ได้รับข้อความ ('.$text.') แล้ว'; 
-                       if($text=='test'){$reply_message = 'เริ่มการทดสอบ';}
+                       if($text=='test'){
+                          
+                           //////////
+                           // SMS config
+	                        $smsurl = "http://www.thsms.com/api/rest";
+	                        //$smsurl = "http://ktscc.org";
+	                        $smsuser = "ktsccorg";
+	                        $smspass = "ktscc540784";
+                           $smsparam = "method=credit&username=$smsuser&password=$smspass";
+										$smsagent = "Mozilla/5.0 (Windows; U; Windows NT 5.0; en-US; rv:1.4) Gecko/20030624 Netscape/7.1 (ax)";
+										$smsch = curl_init();
+										curl_setopt($smsch, CURLOPT_URL, $smsurl);
+										curl_setopt($smsch, CURLOPT_USERAGENT, $smsagent);
+										curl_setopt($smsch, CURLOPT_RETURNTRANSFER, 1);
+										curl_setopt($smsch, CURLOPT_POSTFIELDS, $smsparam);
+										curl_setopt($smsch, CURLOPT_CONNECTTIMEOUT, 15);
+										$result = curl_exec($smsch);
+										curl_close ($smsch);
+
+										/////// get status xml
+										$xml = simplexml_load_string($result);
+										if (is_object($xml))
+										{
+										$smslog_response = $xml->credit->status;
+										$sms_amount = $xml->credit->amount;
+										}
+                            $reply_message = 'เริ่มการทดสอบ ('.$sms_amount.');
+                           //////////////
+                       }
                    }
                }
          }
