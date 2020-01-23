@@ -23,14 +23,17 @@ if ( sizeof($request_array['events']) > 0 ) {
                if( $event['message']['type'] == 'text' ){
                    $text = $event['message']['text'];
                    if($text=='debug'){ $reply_message = json_encode($request_array);}else{
-                     $reply_message = 'ได้รับข้อความ (M '.$text.') แล้ว'; 
+                     $reply_message = 'ได้รับข้อความ (N '.$text.') แล้ว'; 
                        if($text=='hi'){
                          	 ////////////
 			       $userId = $event['source']['userId'];
 			       		$LINEDatas['url'] = "https://api.line.me/v2/bot/profile/".$userId;
 			       		$LINEDatas['token']= $ACCESS_TOKEN;
 			       	$profile_userid =getLINEProfile($LINEDatas);
-			        $reply_message =$profile_userid['userId'];
+			        $userId_array = json_decode($profile_userid, true); 
+			       		foreach ($userId_array['message'] as $data_profile) {
+			        			$reply_message =$data_profile['userId'];
+					}
                            //////////////
                        }
                    }
@@ -104,7 +107,7 @@ function getLINEProfile($datas)
           $datasReturn['message'] = $response;
       }
    }
-   return $response; ///  $datasReturn
+   return $datasReturn; ///  $datasReturn
 }
 /*
 {"events":[
