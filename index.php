@@ -29,7 +29,7 @@ if ( sizeof($request_array['events']) > 0 ) {
 			       $userId = $event['source']['userId'];
 			       		$LINEDatas['url'] = "https://api.line.me/v2/bot/profile/".$userId;
 			       		$LINEDatas['token']= $ACCESS_TOKEN;
-			       	$profile_userid =getLINEProfile($LINEDatas)
+			       	$profile_userid =getLINEProfile($LINEDatas);
 			       foreach ($profile_userid['message'] as $data_userid) {
 				        $reply_message = 'สวัสดีคุณ '.$data_userid['displayName'];
 			      		 }
