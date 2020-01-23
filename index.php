@@ -23,7 +23,8 @@ if ( sizeof($request_array['events']) > 0 ) {
                if( $event['message']['type'] == 'text' ){
                    $text = $event['message']['text'];
                    if($text=='debug'){ $reply_message = json_encode($request_array);}else{
-                     $reply_message = 'ได้รับข้อความ ('.$text.') แล้ว';  
+                     $reply_message = 'ได้รับข้อความ ('.$text.') แล้ว'; 
+                       if($text=='test'){$reply_message = 'เริ่มการทดสอบ';}
                    }
                }
          }
