@@ -23,7 +23,7 @@ if ( sizeof($request_array['events']) > 0 ) {
                if( $event['message']['type'] == 'text' ){
                    $text = $event['message']['text'];
                    if($text=='debug'){ $reply_message = json_encode($request_array);}else{
-                     $reply_message = 'ได้รับข้อความ (h '.$text.') แล้ว'; 
+                     $reply_message = 'ได้รับข้อความ (i '.$text.') แล้ว'; 
                        if($text=='hi'){
                          	 ////////////
 			       $userId = $event['source']['userId'];
@@ -32,7 +32,7 @@ if ( sizeof($request_array['events']) > 0 ) {
 			       	$profile_userid =getLINEProfile($LINEDatas);
 			      $reply_message =	getLINEProfile($LINEDatas);
 			       foreach ($profile_userid as $data_userid) {
-				        $reply_message = 'สวัสดีคุณ '.$profile_userid['message']['displayName'];
+				       // $reply_message = 'สวัสดีคุณ '.$profile_userid['message']['displayName'];
 			      		 }
 			       
 			      
@@ -109,7 +109,7 @@ function getLINEProfile($datas)
           $datasReturn['message'] = $response;
       }
    }
-   return $datasReturn;
+   return $response; ///  $datasReturn
 }
 /*
 {"events":[
