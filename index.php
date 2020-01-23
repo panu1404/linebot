@@ -106,5 +106,29 @@ function getLINEProfile($datas)
    }
    return $datasReturn;
 }
+/*
+{"events":[
+{"type":"message",
+  "replyToken":"84b22bdde34746bab03d77824092ba05",
+	"source":{
+		"userId":"Ua00942631a4b6d272f826f2d7c103a00",
+		"type":"user"
+		},
+	"timestamp":1579769380396,
+	"mode":"active",
+	"message":{
+		  "type":"text",
+		  "id":"11305435089567",
+		  "text":"debug"
+		}
+	}],
+	"destination":"Uaa52dedf207643a40b8a19443e14b1ea"}
 
+{
+	"userId":"Ua00942631a4b6d272f826f2d7c103a00",
+	"displayName":"^_^ Æ ^_^",
+		"pictureUrl":"https://profile.line-scdn.net/0hxBbMt01LJ21fNA8UwiRYOmNxKQAoGiElJ1M4XCo0KVl1BmBrYVNsA3w3cAgiDDc4NAE4DXMwf19y",
+		"statusMessage":"!!สัญญา...เราจะเดินจับมือไปด้วยกัน!! ตลอดไป"
+	}
+*/
 ?>
