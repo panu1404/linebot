@@ -20,7 +20,15 @@ if ( sizeof($request_array['events']) > 0 ) {
         $reply_message = '';
         $reply_token = $event['replyToken'];
 //////////////////
-        $reply_message = 'สวัสดี '.json_encode($request_array);
+         if ( $event['type'] == 'message' ){
+               if( $event['message']['type'] == 'text' ){
+                   $text = $event['message']['text'];
+                   if($text=='debug'){ $reply_message = json_encode($request_array);}else{
+                     $reply_message = 'ได้รับข้อความ('.$text.') แล้ว ';  
+                   }
+               }
+         }
+        
         $data = [
             'replyToken' => $reply_token,
             'messages' => [['type' => 'text', 'text' => $reply_message]]
