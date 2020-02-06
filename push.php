@@ -9,6 +9,7 @@
    $message = $arrayJson['events'][0]['message']['text'];
    //รับ id ของผู้ใช้
    $id = $arrayJson['events'][0]['source']['userId'];
+   $id = 'U8a0a2b75dbac0fabd238d9502cd5ffcc';
    #ตัวอย่าง Message Type "Text + Sticker"
  //  if($message == "สวัสดี"){
       $arrayPostData['to'] = $id;
